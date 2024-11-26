@@ -61,6 +61,7 @@
     </div>
     
     <button id="startPauseButton" onclick="toggleGame()">Start</button>
+    <button id="skipButton" onclick="skipGame()">Skip</button>
     <button id="restartButton" onclick="restartGame()">Restart</button>
 
     <div id="output"></div>
@@ -68,7 +69,7 @@
         <input 
             type="text" 
             id="guess" 
-            placeholder="Enter your guess for the title" 
+            placeholder="Enter piece name" 
             oninput="updateSuggestions()" 
             onkeydown="handleKeyDown(event)"
         >
