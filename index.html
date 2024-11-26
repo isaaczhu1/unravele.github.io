@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unravele</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Random Ravel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Unravele</h1>
-    </header>
-    <main>
-        <section>
-            <h2>About Us</h2>
-            <p>This is a brief description about Unravele.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Unravele. All rights reserved.</p>
-    </footer>
+    <h1>Random Ravel</h1>
+    <button onclick="playRandom()">Play Random Work</button>
+    <div id="output"></div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js" defer></script>
 </body>
 </html>
