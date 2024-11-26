@@ -114,7 +114,7 @@ function checkGuess() {
     }
 
     if (guessInput.toLowerCase() === currentWork.title.toLowerCase()) {
-        feedbackDiv.innerHTML = `<p style="color: green;">Correct! The piece is "${currentWork.title}".</p>`;
+        feedbackDiv.innerHTML = `<p style="color: lightgreen;">Correct! The piece is "${currentWork.title}".</p>`;
         score++; // Increment the score
         updateScore(); // Update the displayed score
 
