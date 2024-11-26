@@ -1,9 +1,14 @@
 // huh
 
 const ravelWorks = [
-    { title: "Pavane pour une infante défunte", url: "audio_files/pavane-pour-une-infante-defunte.mp3" },
     { title: "Boléro", url: "audio_files/bolero.mp3" },
+    { title: "Daphnis et Chloé Suite No. 1", url: "audio_files/daphnis-et-chloe-suite-1.mp3" },
     { title: "Daphnis et Chloé Suite No. 2", url: "audio_files/daphnis-et-chloe-suite-2.mp3" },
+    { title: "Ma mère l'Oye (Mother Goose) (orchestra)", url: "audio_files/ma-mer-lOye-mother-goose-orchestra.mp3" },
+    { title: "Pavane pour une infante défunte (orchestra)", url: "audio_files/pavane-orchestra.mp3" },
+    { title: "Pavane pour une infante défunte (piano)", url: "audio_files/pavane-pour-une-infante-defunte.mp3" },
+    { title: "Rapsodie espagnole", url: "audio_files/rapsodie-espagnole.mp3" },
+    { title: "Une barque sur l'océan (orchestral arrangement)", url: "audio_files/Une-barque-sur-locean-orchestral-arrangement.mp3" },
     // Add more works here
 ];
 
@@ -12,7 +17,7 @@ let isGameRunning = false; // To track if the game is ongoing
 let currentAudio = null; // To store the currently playing audio element
 let score = 0; // Initialize the score counter
 let timerInterval = null; // To store the timer interval
-let timeRemaining = 120; // Start with 2 minutes (120 seconds)
+let timeRemaining = 60; // Start with 2 minutes (120 seconds)
 
 function playRandom() {
     currentWork = ravelWorks[Math.floor(Math.random() * ravelWorks.length)];
@@ -172,11 +177,20 @@ function handleKeyDown(event) {
 }
 
 function skipGame() {
-    const startPauseButton = document.getElementById("startPauseButton");
-    if (isGameRunning) {
-        // Pause and restart the game by toggling the button twice
-        startPauseButton.click();
-        setTimeout(() => startPauseButton.click(), 100); // Slight delay to ensure smooth toggle
+    if (isGameRunning && currentWork) {
+        const feedbackDiv = document.getElementById("feedback");
+
+        // Display the correct answer
+        feedbackDiv.textContent = `The correct answer was: ${currentWork.title}`;
+        feedbackDiv.style.color = "#ff6f00"; // Highlight the feedback
+
+        // Pause for 1 second before skipping to the next piece
+        setTimeout(() => {
+            const startPauseButton = document.getElementById("startPauseButton");
+            startPauseButton.click(); // Pause the game
+            startPauseButton.click(); // Restart the game
+            feedbackDiv.textContent = ""; // Clear the feedback
+        }, 1000);
     }
 }
 
