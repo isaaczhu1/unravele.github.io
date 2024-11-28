@@ -1,5 +1,3 @@
-/* huh */
-
 /* General Reset */
 body, h1, h2, div, button, input, ul, li {
     margin: 0;
@@ -32,9 +30,13 @@ body, h1, h2, div, button, input, ul, li {
 }
 
 /* Content Layer */
-h1, h2, #button-container, #output, #input-container, #feedback {
+h1, h2, #button-container, #output, #input-container {
     position: relative;
-    z-index: 1; /* Ensure content appears above the images */
+    z-index: 2; /* Ensure content appears above the images */
+}
+
+#feedback {
+    z-index: 1; /* Ensure feedback appears above the images */
 }
 
 
@@ -185,4 +187,16 @@ input:focus {
     display: flex; /* Center text vertically */
     align-items: center; /* Vertical alignment */
     justify-content: center; /* Horizontal alignment */
+}
+
+/* Footer Styling */
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #fff;
+    padding: 10px 0;
+    z-index: 2; /* Ensure it appears above background elements */
 }
